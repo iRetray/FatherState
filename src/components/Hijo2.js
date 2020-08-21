@@ -15,10 +15,12 @@ export default class Hijo2 extends React.Component {
         this.props.metodoSet("Josefito")
     }
 
-    componentWillReceiveProps(){
-        this.setState({
-            nombre: this.props.name
-        })
+    componentWillReceiveProps(nextProps) {
+        if (nextProps !== this.props.name) {
+            this.setState({
+                nombre: nextProps.name
+            })
+        }
     }
 
     render() {
